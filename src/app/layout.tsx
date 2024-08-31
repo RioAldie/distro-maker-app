@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/footer';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,9 +22,13 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <Navbar />
         <main className="flex grainy-light flex-col min-h-[calc(100vh-3.5rem-1px)]">
-          <div>{children}</div>
+          <div className="flex-1 min-h-[80vh] flex flex-col h-full ">
+            {children}
+          </div>
           <Footer />
         </main>
+
+        <Toaster />
       </body>
     </html>
   );
